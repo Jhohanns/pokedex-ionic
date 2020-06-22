@@ -1,0 +1,22 @@
+ion-row,
+ion-card-content {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+}
+
+ion-card {
+  width: 140px;
+  height: 270px;
+}
+
+ion-card-header {
+  text-align: center;
+}
+
+.logout-option {
+  font-size: 28px;
+}
+.profile-option {
+  font-size: 24px;
+}

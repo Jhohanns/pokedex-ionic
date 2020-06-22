@@ -1,0 +1,96 @@
+<ion-content>
+  <ion-header class="ion-no-border">
+    <ion-toolbar>
+      <ion-buttons slot="start">
+        <ion-back-button [defaultHref]="goBack"></ion-back-button>
+      </ion-buttons>
+      <ion-title>{{ loggedUser ? 'Update profile' : 'Register'}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content>
+    <form [formGroup]="signUpForm"
+          (ngSubmit)="submitForm()">
+      <ion-item>
+        <ion-label position="floating">Full name</ion-label>
+        <ion-input formControlName="name"></ion-input>
+      </ion-item>
+
+      <ion-text color="danger">
+        <p *ngIf="formControls.name.touched && formControls.name.errors?.required"
+           class="ion-padding-start">
+          Required
+        </p>
+      </ion-text>
+
+      <ion-item lines="full">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input formControlName="email"
+                   type="email"></ion-input>
+      </ion-item>
+
+      <ion-text *ngIf="formControls.email.touched && formControls.email.errors?.required"
+                color="danger">
+        <p class="ion-padding-start">Email is required</p>
+      </ion-text>
+      <ion-text *ngIf="formControls.email.touched && formControls.email.errors?.email"
+                color="danger">
+        <p class="ion-padding-start">is not a valid email</p>
+      </ion-text>
+
+      <ion-item>
+        <ion-label position="floating">Password</ion-label>
+        <ion-input formControlName="password"
+                   type="password"></ion-input>
+      </ion-item>
+
+      <ion-text *ngIf="formControls.password.touched && formControls.password.errors?.required"
+                color="danger">
+        <p class="ion-padding-start">Password is required</p>
+      </ion-text>
+
+      <ion-text *ngIf="formControls.password.touched && formControls.password.errors?.minlength"
+                color="danger">
+        <p class="ion-padding-start">Min 8 characters</p>
+      </ion-text>
+
+      <ion-text *ngIf=" formControls.password.touched && formControls.password.errors?.capitalquantity"
+                color="danger">
+        <p class="ion-padding-start">Min 2 capital letters</p>
+      </ion-text>
+
+      <ion-text *ngIf="formControls.password.touched && formControls.password.errors?.specialcharacter"
+                color="danger">
+        <p class="ion-padding-start">Min 1 special character</p>
+      </ion-text>
+
+      <ion-text *ngIf="formControls.password.touched && formControls.password.errors?.minnumberquantity"
+                color="danger">
+        <p class="ion-padding-start">Min 1 number</p>
+      </ion-text>
+
+      <ion-item class="ion-text-confirmation">
+        <ion-label position="floating">Confirm password</ion-label>
+        <ion-input type="password"
+                   formControlName="confirmPassword"></ion-input>
+      </ion-item>
+
+      <ion-text *ngIf="formControls.confirmPassword.touched && formControls.confirmPassword.errors?.required"
+                color="danger">
+        <p class="ion-padding-start">Password is required</p>
+      </ion-text>
+
+      <ion-text *ngIf="formControls.confirmPassword.touched && !passwordsMatch"
+                color="danger">
+        <p class="ion-padding-start">Passwords dont match</p>
+      </ion-text>
+
+      <ion-button type="submit"
+                  [color]="signUpForm.status === 'VALID' ? 'primary' : 'medium'"
+                  expand="full">{{ loggedUser ? 'UPDATE' : 'REGISTER'}}</ion-button>
+      <ion-button expand="full"
+                  [routerLink]="['/login']"
+                  color="danger"
+                  routerDirection="back">CANCEL</ion-button>
+    </form>
+  </ion-content>

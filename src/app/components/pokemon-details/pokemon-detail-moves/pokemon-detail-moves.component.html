@@ -1,0 +1,11 @@
+<ion-item>
+  <h2 color="secondary">Moves:</h2>
+</ion-item>
+<ion-grid>
+  <ion-row>
+    <ion-col *ngFor="let move of pokemonDetail.moves"
+             size="auto">
+     <ion-badge color="secondary">{{move.move.name}}</ion-badge>
+    </ion-col>
+  </ion-row>
+</ion-grid>

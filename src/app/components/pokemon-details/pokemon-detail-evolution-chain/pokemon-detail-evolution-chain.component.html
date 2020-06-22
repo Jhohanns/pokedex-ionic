@@ -1,0 +1,19 @@
+<ion-item>
+  <h2 color="secondary">Evolution Chain:</h2>
+</ion-item>
+<ion-grid>
+  <ion-row>
+    <ion-col *ngFor="let evolution of evolutions"
+             size="auto">
+      <ion-card [color]="pokemonDetail.name === evolution.name? 'secondary' : 'primary'">
+        <ion-card-header>
+          <ion-badge *ngIf="pokemonDetail.name === evolution.name">CURRENT</ion-badge>
+          <ion-card-title>Level {{evolution.level}}</ion-card-title>
+        </ion-card-header>
+        <ion-card-content>
+          <h2>{{evolution.name}}</h2>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-grid>

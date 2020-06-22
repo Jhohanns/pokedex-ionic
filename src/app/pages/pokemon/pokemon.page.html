@@ -1,0 +1,46 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-icon name="person-outline"
+              class="profile-option ion-padding-end"
+              slot="end"
+              [routerLink]="['/profile']"></ion-icon>
+    <ion-icon slot="end"
+              class="logout-option ion-padding-end"
+              name="log-out-outline"
+              [routerLink]="['/login']">logout</ion-icon>
+
+    <ion-title>Pokemon list</ion-title>
+  </ion-toolbar>
+  <ion-toolbar no-border-top>
+    <ion-searchbar [formControl]="searchControl"
+                   color="primary"
+                   placeholder="Search"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-grid>
+    <ion-row>
+      <ion-col *ngFor="let pokemon of pokemonsFiltered"
+               size="auto">
+        <ion-card (click)="goToPokemonDetail(pokemon)">
+          <ion-card-header>
+            <ion-card-title>{{pokemon.name}}</ion-card-title>
+          </ion-card-header>
+          <ion-img [src]="pokemon.sprites.front_default"></ion-img>
+          <ion-card-content>
+            <ion-badge *ngFor="let type of pokemon.types"
+                       color="primary">{{type.type.name}}</ion-badge>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+
+    </ion-row>
+  </ion-grid>
+  <ion-infinite-scroll threshold="100px"
+                       (ionInfinite)="loadData($event)">
+    <ion-infinite-scroll-content loadingSpinner="bubbles"
+                                 loadingText="Loading more data...">
+    </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
