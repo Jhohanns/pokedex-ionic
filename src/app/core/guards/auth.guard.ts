@@ -30,6 +30,4 @@ export class AuthGuard implements CanLoad, CanActivate {
         }
         return true;
     }
-
-
 }
