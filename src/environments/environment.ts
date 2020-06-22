@@ -5,7 +5,6 @@
 export const environment = {
   production: false,
   pokemonBaseUrl: 'https://pokeapi.co/api/v2/',
-  pokemonImageBaseUrl: 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/'
 };
 
 /*

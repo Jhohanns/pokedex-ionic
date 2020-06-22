@@ -44,7 +44,6 @@ export class LoginPage implements OnInit, ViewWillEnter {
   }
 
   login() {
-    this.router.navigateByUrl(ROUTES.POKEMON_LIST);
     if (this.loginForm.valid) {
       const user = this.userService.login(
         this.loginForm.controls.email.value,

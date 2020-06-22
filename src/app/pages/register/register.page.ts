@@ -51,6 +51,10 @@ export class RegisterPage implements OnInit {
     return this.loggedUser ? ROUTES.POKEMON_LIST : ROUTES.LOGIN;
   }
 
+  goToPreviousPage(){
+    this.router.navigate([this.goBack]);
+  }
+
   buildForm() {
     this.signUpForm = this.formBuilder.group({
       name: ['', [Validators.required]],
@@ -78,7 +82,7 @@ export class RegisterPage implements OnInit {
   }
 
   submitForm() {
-    if (this.signUpForm.valid) {
+    if (this.signUpForm.valid && this.passwordsMatch) {
       const user: IUser = {
         name: this.formControls.name.value,
         email: this.formControls.email.value,

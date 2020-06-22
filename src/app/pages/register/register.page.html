@@ -80,17 +80,16 @@
         <p class="ion-padding-start">Password is required</p>
       </ion-text>
 
-      <ion-text *ngIf="formControls.confirmPassword.touched && !passwordsMatch"
+      <ion-text *ngIf="!passwordsMatch"
                 color="danger">
         <p class="ion-padding-start">Passwords dont match</p>
       </ion-text>
 
       <ion-button type="submit"
-                  [color]="signUpForm.status === 'VALID' ? 'primary' : 'medium'"
+                  [color]="signUpForm.status === 'VALID' && passwordsMatch ? 'primary' : 'medium'"
                   expand="full">{{ loggedUser ? 'UPDATE' : 'REGISTER'}}</ion-button>
       <ion-button expand="full"
-                  [routerLink]="['/login']"
-                  color="danger"
-                  routerDirection="back">CANCEL</ion-button>
+                  (click)="goToPreviousPage()"
+                  color="danger">CANCEL</ion-button>
     </form>
   </ion-content>
