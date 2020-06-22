@@ -49,22 +49,22 @@
         <p class="ion-padding-start">Password is required</p>
       </ion-text>
 
-      <ion-text *ngIf="formControls.password.touched && formControls.password.errors?.minlength"
+      <ion-text *ngIf="formControls.password.dirty && formControls.password.errors?.minlength"
                 color="danger">
         <p class="ion-padding-start">Min 8 characters</p>
       </ion-text>
 
-      <ion-text *ngIf=" formControls.password.touched && formControls.password.errors?.capitalquantity"
+      <ion-text *ngIf=" formControls.password.dirty && formControls.password.errors?.capitalquantity"
                 color="danger">
         <p class="ion-padding-start">Min 2 capital letters</p>
       </ion-text>
 
-      <ion-text *ngIf="formControls.password.touched && formControls.password.errors?.specialcharacter"
+      <ion-text *ngIf="formControls.password.dirty && formControls.password.errors?.specialcharacter"
                 color="danger">
         <p class="ion-padding-start">Min 1 special character</p>
       </ion-text>
 
-      <ion-text *ngIf="formControls.password.touched && formControls.password.errors?.minnumberquantity"
+      <ion-text *ngIf="formControls.password.dirty && formControls.password.errors?.minnumberquantity"
                 color="danger">
         <p class="ion-padding-start">Min 1 number</p>
       </ion-text>
@@ -77,12 +77,12 @@
 
       <ion-text *ngIf="formControls.confirmPassword.touched && formControls.confirmPassword.errors?.required"
                 color="danger">
-        <p class="ion-padding-start">Password is required</p>
+        <p class="ion-padding-start">Confirm password is required</p>
       </ion-text>
 
       <ion-text *ngIf="!passwordsMatch"
                 color="danger">
-        <p class="ion-padding-start">Passwords dont match</p>
+        <p class="ion-padding-start">Passwords don't match</p>
       </ion-text>
 
       <ion-button type="submit"
