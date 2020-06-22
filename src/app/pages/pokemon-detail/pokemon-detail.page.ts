@@ -1,11 +1,11 @@
-import { ROUTES } from '@constants/shared-constants';
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { ToastController } from '@ionic/angular';
 
+import { ROUTES } from '@constants/shared-constants';
 import { IPokemonDetail } from '@interfaces/pokemon.interface';
 import { Pokemon } from '@services/pokemon';
-import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-pokemon-detail',

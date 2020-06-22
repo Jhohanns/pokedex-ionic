@@ -15,7 +15,7 @@ const routes: Routes = [
   {
     path: 'pokemon',
     loadChildren: () => import('./pages/pokemon/pokemon.module').then( m => m.PokemonPageModule),
-    // canLoad: [AuthGuard]
+    canLoad: [AuthGuard]
   },
   {
     path: 'login',
@@ -24,7 +24,7 @@ const routes: Routes = [
   {
     path: 'pokemon-detail',
     loadChildren: () => import('./pages/pokemon-detail/pokemon-detail.module').then( m => m.PokemonDetailPageModule),
-    // canLoad: [AuthGuard]
+    canLoad: [AuthGuard]
   },
 ];
 
