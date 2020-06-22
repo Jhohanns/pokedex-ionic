@@ -1,9 +1,11 @@
 
-import { PokemonService } from './pokemon.service';
 import { Injectable } from '@angular/core';
-import { map, flatMap } from 'rxjs/operators';
+
+import { ICustomPokemon, IPokemon, IPokemonDetail } from '@interfaces/pokemon.interface';
+import { PokemonService } from './pokemon.service';
+
 import { forkJoin, Observable } from 'rxjs';
-import { IPokemonDetail, IPokemon, ICustomPokemon } from '../interfaces/pokemon.interface';
+import { flatMap, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root',
