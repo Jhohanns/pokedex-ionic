@@ -22,11 +22,12 @@ export class PokemonDetailEvolutionChainComponent implements OnInit {
   }
 
   getEvolutionChain(evolutionData) {
-    let evolutionInfo = evolutionData.chain.evolves_to[0];
+    let evolutionInfo = evolutionData.chain;
     while (evolutionInfo) {
       const evolutionItem: any = {};
       evolutionItem.name = evolutionInfo.species.name;
-      evolutionItem.level = evolutionInfo.evolution_details[0].min_level;
+      const minLevel = evolutionInfo.evolution_details[0];
+      evolutionItem.level = minLevel ? minLevel.min_level : 0;
       this.evolutions.push(evolutionItem);
       evolutionInfo = evolutionInfo.evolves_to[0];
     }
